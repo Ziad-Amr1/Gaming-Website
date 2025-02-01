@@ -564,7 +564,7 @@ footer ul li a:hover {
     }
     .contact-section h1 {
         font-size: 60px;
-        max-width: 300px;
+        max-width: 250px;
     }
     footer p{
         display: none;
@@ -575,5 +575,84 @@ footer ul li a:hover {
     .stones-img {
         margin-top: 80%;
         width: 400px;
+    }
+}
+
+/* انيميشن autodisplay */
+.autodisplay {
+    animation: autodisplay both;
+    animation-timeline: view(70% 5%);
+}
+
+@keyframes autodisplay {
+    0% {
+        opacity: 0;
+        transform: translateY(200px) scale(0.3);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+/* انيميشن autoblur */
+.autoblur {
+    animation: autoblur linear both;
+    animation-timeline: view();
+}
+
+@keyframes autoblur {
+    0% {
+        filter: blur(40px);
+    }
+    40%, 60% {
+        filter: blur(0px);
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100% {
+        filter: blur(40px);
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+
+/* تعديلات للهواتف */
+@media screen and (max-width: 650px) {
+    .autodisplay {
+        animation: autodisplay-mobile 1s ease-in-out both;
+        animation-timeline: none;
+    }
+
+    @keyframes autodisplay-mobile {
+        0% {
+            opacity: 0;
+            transform: translateY(100px) scale(0.5);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0px) scale(1);
+        }
+    }
+
+    .autoblur {
+        animation: autoblur-mobile linear both;
+        animation-timeline: view(50% 50%);
+    }
+
+    @keyframes autoblur-mobile {
+        0% {
+            filter: blur(20px);
+        }
+        40%, 60% {
+            filter: blur(0px);
+            opacity: 1;
+            transform: translateY(0px);
+        }
+        100% {
+            filter: blur(20px);
+            transform: translateY(-100px);
+            opacity: 0;
+        }
     }
 }
